@@ -104,3 +104,45 @@ The integrated simulation tested normal encryption, selected single-bit round-ou
 The final regression run reported 285 passing checks and zero failures across five test suites. These results cover the specific test cases exercised and do not establish exhaustive fault coverage.
 
 **Known limitation:** Ordinary parity checking can miss some multi-bit errors, including even-parity error patterns. The current simulation results do not establish complete fault coverage or physical FPGA validation.
+
+---
+
+## Verification Evidence
+
+The design was verified using Icarus Verilog and dedicated Verilog testbenches.
+
+### 1. AES-128 Encryption
+
+The simulated ciphertext matches the expected result for the standard AES-128 test vector.
+
+![AES-128 encryption verification](project_evidence/screenshots/01-aes128-encryption.jpeg)
+
+### 2. Checked S-box
+
+All 256 normal S-box input cases passed. The selected single-bit and multi-bit fault-injection tests also passed.
+
+![Checked S-box verification](project_evidence/screenshots/02-checked-sbox.jpeg)
+
+### 3. Key Expansion
+
+The initial key, first round key, and tenth round key matched the expected values.
+
+![Key expansion verification](project_evidence/screenshots/03-key-expansion.jpeg)
+
+### 4. AES Round Verification
+
+The first-round output matched the expected AES round result.
+
+![AES round verification](project_evidence/screenshots/04-aes-round-verification.jpeg)
+
+### 5. Integrated Parity Fault Detection
+
+The integrated simulation tested normal encryption, selected single-bit round-output faults, a two-bit parity limitation, and S-box fault detection.
+
+![AES-128 parity integration](project_evidence/screenshots/05-aes128-parity-integration.jpeg)
+
+### Verification Summary
+
+The final regression run reported 285 passing checks and zero failures across five test suites. These results cover the specific test cases exercised and do not establish exhaustive fault coverage.
+
+**Known limitation:** Ordinary parity checking can miss some multi-bit errors, including even-parity error patterns. The current simulation results do not establish complete fault coverage or physical FPGA validation.

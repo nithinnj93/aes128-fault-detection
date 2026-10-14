@@ -1,0 +1,6 @@
+build/
+*.out
+*.vcd
+.DS_Store
+.vscode/
+aes128-fault-detection-copy/

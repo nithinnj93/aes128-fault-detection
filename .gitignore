@@ -1,6 +1,7 @@
 build/
 *.out
 *.vcd
+!project_evidence/waveforms/*.vcd
 .DS_Store
 .vscode/
 aes128-fault-detection-copy/
